@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <meta name="description" content="A special Valentine's Day proposal just for you">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Intro Screen -->
+        <div class="screen active" id="introScreen">
+            <div class="intro-content">
+                <div class="heart-animation">
+                    <div class="heart-pulse">💖</div>
+                </div>
+                <div class="cat-intro">
+                    <img src="cat_heart.png" alt="Cute cat with heart" class="intro-cat-img">
+                </div>
+                <h1 class="main-title">Dear Rheaaa...</h1>
+                <p class="subtitle">I have something special to ask you 💕</p>
+                <button class="btn-primary" id="startBtn">
+                    <span>Open Your Heart</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Journey Screen 1 -->
+        <div class="screen" id="journeyScreen1">
+            <div class="journey-content">
+                <div class="letter-envelope">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body"></div>
+                    </div>
+                    <div class="letter">
+                        <h2>Dear Rheaaa,</h2>
+                        <p>Every moment with you feels like magic ✨</p>
+                        <p>Your smile brightens my darkest days 🌟</p>
+                        <p>Your laughter is my favorite melody 🎵</p>
+                        <p>You make my heart purr with happiness 🐱💕</p>
+                    </div>
+                </div>
+                <button class="btn-secondary" id="nextBtn1">
+                    <span>Continue...</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Journey Screen 2 -->
+        <div class="screen" id="journeyScreen2">
+            <div class="journey-content">
+                <div class="memory-cards">
+                    <div class="memory-card">
+                        <div class="card-icon">🌹</div>
+                        <h3>Every Little Thing</h3>
+                        <p>From your quirky habits to your beautiful dreams</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="card-icon">⭐</div>
+                        <h3>Makes Me Fall</h3>
+                        <p>Deeper and deeper in love with you</p>
+                    </div>
+                    <div class="memory-card">
+                        <div class="card-icon">💫</div>
+                        <h3>Each Day</h3>
+                        <p>I discover something new to adore about you</p>
+                    </div>
+                </div>
+                <button class="btn-secondary" id="nextBtn2">
+                    <span>There's More...</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div class="screen" id="questionScreen">
+            <div class="question-content">
+                <div class="heart-logo">
+                    <div class="animated-heart">❤️</div>
+                </div>
+                <h1 class="big-question">Rheaaa, Will You Be My Valentine?</h1>
+                <p class="romantic-text">Let's make this Valentine's Day the beginning of our beautiful story
+                    together...</p>
+                <div class="romantic-cats">
+                    <img src="romantic_cats.png" alt="Romantic cats" class="romantic-cats-img">
+                </div>
+
+                <div class="button-container">
+                    <button class="btn-yes" id="yesBtn">
+                        <span>Yes! 💖</span>
+                        <div class="sparkles"></div>
+                    </button>
+                    <button class="btn-no" id="noBtn">
+                        <span>Maybe Later</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Screen -->
+        <div class="screen" id="successScreen">
+            <div class="success-content">
+                <div class="celebration">
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                    <div class="firework"></div>
+                </div>
+                <div class="success-heart">💕</div>
+                <h1 class="success-title">Rheaaa Said Yes!</h1>
+                <p class="success-message">This is the start of something beautiful...</p>
+                <div class="love-quote">
+                    "In all the world, there is no heart for me like yours.<br>
+                    In all the world, there is no love for you like mine."<br>
+                    <span>- Maya Angelou</span>
+                </div>
+                <div class="confetti-container" id="confettiContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
