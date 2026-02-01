@@ -337,6 +337,40 @@ function createFallingPetals() {
 }
 
 // ========================================
+// FLYING HEARTS ON CLICK
+// ========================================
+function setupClickHearts() {
+    document.addEventListener('click', function (e) {
+        // Don't create hearts if clicking on buttons (to avoid interference)
+        if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+            return;
+        }
+
+        createFlyingHeart(e.clientX, e.clientY);
+    });
+}
+
+function createFlyingHeart(x, y) {
+    const heartEmojis = ['💖', '💕', '💗', '💓', '💝', '❤️', '🌹', '💘'];
+    const heart = document.createElement('div');
+    heart.className = 'flying-heart';
+    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+    // Position at click location
+    heart.style.left = x + 'px';
+    heart.style.top = y + 'px';
+
+    // Random horizontal drift
+    const drift = (Math.random() - 0.5) * 100;
+    heart.style.setProperty('--drift', drift + 'px');
+
+    document.body.appendChild(heart);
+
+    // Remove after animation
+    setTimeout(() => heart.remove(), 2000);
+}
+
+// ========================================
 // MUSIC PLAYER
 // ========================================
 function setupMusicPlayer() {
