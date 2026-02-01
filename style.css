@@ -162,6 +162,29 @@ body::before {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* Continuous falling petals */
+.falling-petal {
+    position: fixed;
+    top: -20px;
+    border-radius: 50% 0 50% 0;
+    pointer-events: none;
+    z-index: 9998;
+    animation: petalFallDown 5s linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes petalFallDown {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
 /* ========================================
    MUSIC PLAYER
    ======================================== */

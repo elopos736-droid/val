@@ -291,6 +291,41 @@ function createPetalBurst(event) {
     }
 }
 
+// Continuous falling petals like confetti
+function createFallingPetals() {
+    const petalColors = ['#ff6b9d', '#ffc1e3', '#c44569', '#f8b195', '#ff8fab'];
+
+    // Create individual falling petal
+    const createPetal = () => {
+        const petal = document.createElement('div');
+        petal.className = 'falling-petal';
+        petal.style.left = Math.random() * 100 + '%';
+        petal.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+        petal.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        petal.style.animationDelay = Math.random() + 's';
+
+        // Random size
+        const size = Math.random() * 15 + 10;
+        petal.style.width = size + 'px';
+        petal.style.height = size + 'px';
+
+        document.body.appendChild(petal);
+
+        setTimeout(() => petal.remove(), 6000);
+    };
+
+    // Create initial batch
+    for (let i = 0; i < 50; i++) {
+        setTimeout(createPetal, i * 100);
+    }
+
+    // Keep creating petals
+    const petalInterval = setInterval(createPetal, 300);
+
+    // Stop after 30 seconds
+    setTimeout(() => clearInterval(petalInterval), 30000);
+}
+
 // ========================================
 // MUSIC PLAYER
 // ========================================
