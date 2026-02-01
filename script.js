@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeFloatingHearts();
     setupEventListeners();
     setupMusicPlayer();
+    setupClickHearts();
 });
 
 // ========================================
