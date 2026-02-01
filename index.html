@@ -15,6 +15,20 @@
 </head>
 
 <body>
+    <!-- Background Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-toggle" id="musicToggle">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Play Music</span>
+        </button>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="backgroundMusic" loop>
+        <!-- Using a royalty-free placeholder - you can replace with your own -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Floating Hearts Background -->
     <div class="hearts-container" id="heartsContainer"></div>
 
@@ -63,6 +77,9 @@
         <!-- Journey Screen 2 -->
         <div class="screen" id="journeyScreen2">
             <div class="journey-content">
+                <div class="cat-meme-section">
+                    <img src="cat_meme_love.png" alt="Cute cat waiting" class="cat-meme-img">
+                </div>
                 <div class="memory-cards">
                     <div class="memory-card">
                         <div class="card-icon">🌹</div>
@@ -98,6 +115,9 @@
                 <div class="romantic-cats">
                     <img src="romantic_cats.png" alt="Romantic cats" class="romantic-cats-img">
                 </div>
+                <div class="cat-meme-section">
+                    <img src="cat_meme_heart.png" alt="Cat with heart" class="cat-meme-img">
+                </div>
 
                 <div class="button-container">
                     <button class="btn-yes" id="yesBtn">
@@ -118,6 +138,9 @@
                     <div class="firework"></div>
                     <div class="firework"></div>
                     <div class="firework"></div>
+                </div>
+                <div class="success-cats">
+                    <img src="dancing_cats.png" alt="Dancing cats celebration" class="dancing-cats-img">
                 </div>
                 <div class="success-heart">💕</div>
                 <h1 class="success-title">Rheaaa Said Yes!</h1>
