@@ -123,6 +123,7 @@ function handleYesClick() {
     setTimeout(() => {
         transitionToScreen('successScreen');
         createConfetti();
+        createFallingPetals();
     }, 500);
 }
 
