@@ -294,7 +294,14 @@ function createPetalBurst(event) {
 
 // Continuous falling petals like confetti
 function createFallingPetals() {
-    const petalColors = ['#ff6b9d', '#ffc1e3', '#c44569', '#f8b195', '#ff8fab'];
+    const petalColors = [
+        'linear-gradient(135deg, #ff6b9d, #c44569)',
+        'linear-gradient(135deg, #ffc1e3, #ff8fab)',
+        'linear-gradient(135deg, #f8b195, #f67280)',
+        'linear-gradient(135deg, #c471f5, #fa71cd)',
+        'linear-gradient(135deg, #ff758c, #ff7eb3)',
+        'linear-gradient(135deg, #fa709a, #fee140)'
+    ];
 
     // Create individual falling petal
     const createPetal = () => {
@@ -302,26 +309,28 @@ function createFallingPetals() {
         petal.className = 'falling-petal';
         petal.style.left = Math.random() * 100 + '%';
         petal.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
-        petal.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        petal.style.animationDelay = Math.random() + 's';
 
-        // Random size
-        const size = Math.random() * 15 + 10;
+        // Random size for variety
+        const size = Math.random() * 12 + 10;
         petal.style.width = size + 'px';
-        petal.style.height = size + 'px';
+        petal.style.height = (size * 1.4) + 'px';
+
+        // Random animation duration and delay for natural movement
+        petal.style.animationDuration = (Math.random() * 4 + 5) + 's';
+        petal.style.animationDelay = (Math.random() * 1.5) + 's';
 
         document.body.appendChild(petal);
 
-        setTimeout(() => petal.remove(), 6000);
+        setTimeout(() => petal.remove(), 10000);
     };
 
-    // Create initial batch
-    for (let i = 0; i < 50; i++) {
-        setTimeout(createPetal, i * 100);
+    // Create initial burst
+    for (let i = 0; i < 60; i++) {
+        setTimeout(createPetal, i * 70);
     }
 
-    // Keep creating petals
-    const petalInterval = setInterval(createPetal, 300);
+    // Keep creating petals continuously
+    const petalInterval = setInterval(createPetal, 200);
 
     // Stop after 30 seconds
     setTimeout(() => clearInterval(petalInterval), 30000);
