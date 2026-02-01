@@ -49,7 +49,9 @@ function setupEventListeners() {
     // Start button
     const startBtn = document.getElementById('startBtn');
     if (startBtn) {
-        startBtn.addEventListener('click', () => {
+        startBtn.addEventListener('click', (e) => {
+            createRoseBloom(e);
+            createPetalBurst(e);
             transitionToScreen('journeyScreen1');
         });
     }
@@ -57,14 +59,18 @@ function setupEventListeners() {
     // Journey navigation buttons
     const nextBtn1 = document.getElementById('nextBtn1');
     if (nextBtn1) {
-        nextBtn1.addEventListener('click', () => {
+        nextBtn1.addEventListener('click', (e) => {
+            createRoseBloom(e);
+            createPetalBurst(e);
             transitionToScreen('journeyScreen2');
         });
     }
 
     const nextBtn2 = document.getElementById('nextBtn2');
     if (nextBtn2) {
-        nextBtn2.addEventListener('click', () => {
+        nextBtn2.addEventListener('click', (e) => {
+            createRoseBloom(e);
+            createPetalBurst(e);
             transitionToScreen('questionScreen');
         });
     }
@@ -72,12 +78,19 @@ function setupEventListeners() {
     // Yes/No buttons
     const yesBtn = document.getElementById('yesBtn');
     if (yesBtn) {
-        yesBtn.addEventListener('click', handleYesClick);
+        yesBtn.addEventListener('click', (e) => {
+            createRoseBloom(e);
+            createPetalBurst(e);
+            handleYesClick();
+        });
     }
 
     const noBtn = document.getElementById('noBtn');
     if (noBtn) {
-        noBtn.addEventListener('click', handleNoClick);
+        noBtn.addEventListener('click', (e) => {
+            createPetalBurst(e);
+            handleNoClick();
+        });
     }
 }
 
@@ -228,6 +241,55 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ========================================
+// ROSE BLOOM & PETAL EFFECTS
+// ========================================
+function createRoseBloom(event) {
+    const rose = document.createElement('div');
+    rose.className = 'rose-bloom';
+    rose.style.left = event.clientX + 'px';
+    rose.style.top = event.clientY + 'px';
+
+    // Create rose image element
+    const img = document.createElement('img');
+    img.src = 'blooming_rose.png';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    rose.appendChild(img);
+
+    document.body.appendChild(rose);
+
+    setTimeout(() => rose.remove(), 2000);
+}
+
+function createPetalBurst(event) {
+    const petalCount = 15;
+    const x = event.clientX;
+    const y = event.clientY;
+
+    for (let i = 0; i < petalCount; i++) {
+        setTimeout(() => {
+            const petal = document.createElement('div');
+            petal.className = 'rose-petal';
+
+            // Random direction
+            const angle = (Math.PI * 2 * i) / petalCount;
+            const velocity = 100 + Math.random() * 100;
+            const offsetX = Math.cos(angle) * velocity;
+            const offsetY = Math.sin(angle) * velocity - 50; // Slight upward bias
+
+            petal.style.left = x + 'px';
+            petal.style.top = y + 'px';
+            petal.style.setProperty('--tx', offsetX + 'px');
+            petal.style.setProperty('--ty', offsetY + 'px');
+
+            document.body.appendChild(petal);
+
+            setTimeout(() => petal.remove(), 2000);
+        }, i * 30); // Stagger petal creation
+    }
+}
 
 // ========================================
 // MUSIC PLAYER

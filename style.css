@@ -106,6 +106,63 @@ body::before {
 }
 
 /* ========================================
+   BLOOMING ROSE & PETAL EFFECTS
+   ======================================== */
+.rose-bloom {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: bloomAnimation 2s ease-out forwards;
+}
+
+@keyframes bloomAnimation {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.rose-petal {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff6b9d, #f5576c);
+    border-radius: 50% 0 50% 0;
+    pointer-events: none;
+    z-index: 9999;
+    animation: petalFall 2s ease-out forwards;
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(400px) rotate(720deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.funny-meme {
+    max-width: 300px !important;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
    MUSIC PLAYER
    ======================================== */
 .music-player {
@@ -401,10 +458,36 @@ body::before {
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     font-family: var(--font-body);
-    overflow: hidden;
+    overflow: visible;
     z-index: 1;
+}
+
+/* Click ripple effect */
+.btn-primary::after,
+.btn-secondary::after,
+.btn-yes::after,
+.btn-no::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::after,
+.btn-secondary:active::after,
+.btn-yes:active::after,
+.btn-no:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
 }
 
 .btn-primary {
